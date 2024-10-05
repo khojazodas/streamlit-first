@@ -14,6 +14,10 @@ with st.expander('Initial data'):
   st.write('**y**')
   y_row = df.species
   y_row
+
+with st.expander('Data visualization'):
+  st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
+  st.scatter_chart(data=df, x='bill_depth_mm', y='sex', color='species')
   
 with st.sidebar:
   st.header('Input Features')
