@@ -38,3 +38,25 @@ with st.sidebar:
           'sex': gender}
   input_df = pd.DataFrame(data, index=[0])
   input_penguins = pd.concat([input_df, x_row], axis=0)
+
+
+encode = ['island', 'sex']
+df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+
+x = df_penguins[1:]
+input_row = df_penguins[:1]
+
+
+target_napper = {'Adelie': 0,
+                 'Chinstrap': 1,
+                 'Gentoo': 2}
+def target_encode(val):
+  return taget_napper[val]
+
+y = y_row.apply(target_encode)
+
+with st.expander('Data Preparation'):
+  st.write('**Encoded X (input penguin)**')
+  input_row
+  st.write('**Encoded y**')
+  y
