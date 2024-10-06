@@ -10,7 +10,7 @@ with st.expander('Initial data'):
   df
 
   st.write('**X**')
-  x_row = df.drop('GradeClass', axis=1)
+  x_row = df.drop('GradeClass', 'StudentID', 'Ethnicity', axis=1)
   x_row
 
   st.write('**y**')
