@@ -20,16 +20,21 @@ with st.expander('Initial data'):
 
 with st.sidebar:
   st.header('Input Features')
-  island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgerson'))
-  bill_length_mm = st.slider('Bill depth (mm)', 32.1, 59.6, 43.9)
-  bill_depth_mm = st.slider('Bill depth (mm)', 13.1, 21.5, 17.2) 
-  flipper_length_mm = st.slider('flipper length (mm)', 172.0, 231.0, 201.0)
-  body_mass_g = st.slider('Body mass (g)', 2700.0, 6300.0, 4207.0)
-  gender = st.selectbox('Gender', ('male', 'female'))
-
+  gender = st.selectbox('Gender(0 - Male, 1 - Female)', ('0', '1'))
+  tutoring = st.selectbox('Tutoring(0 - No, 1 - Yes)', ('0', '1'))
+  extracurriculars = st.selectbox('Extracurriculars(0 - No, 1 - Yes)', ('0', '1'))
+  sport = st.selectbox('Sports(0 - No, 1 - Yes)', ('0', '1'))
+  music = st.selectbox('Music(0 - No, 1 - Yes)', ('0', '1'))
+  volunteering = st.selectbox('Volunteering(0 - No, 1 - Yes)', ('0', '1'))
+  age = st.slider('Age', 15, 19, 16)
+  parental_edu = st.slider("ParentalEducation(0-none, 1-high school, 2-some college, 3-bachelor's, 4-higher)", 0, 4, 3)
+  stw = st.slider('StudyTimeWeekly', 0, 20, 10)
+  absences = st.slider('Absences', 0, 30, 15)
+  parents = st.slider('Parental Support(0-none, 1-low, 2-moderate, 3-high, 4-very high)', 0, 4, 2)
+  gpa = st.slider('GPA', 2.0, 4.0, 3.0)
 
   # Create a DataFrame for the input features
-  data = {'island': island,
+  data = {'gender': gender,
           'bill_length_mm': bill_length_mm,
           'bill_depth_mm': bill_depth_mm,
           'flipper_length_mm': flipper_length_mm,
