@@ -35,11 +35,18 @@ with st.sidebar:
 
   # Create a DataFrame for the input features
   data = {'gender': gender,
-          'bill_length_mm': bill_length_mm,
-          'bill_depth_mm': bill_depth_mm,
-          'flipper_length_mm': flipper_length_mm,
-          'body_mass_g': body_mass_g,
-          'sex': gender}
+          'tutoring': tutoring,
+          'extracurriculars': extracurriculars,
+          'sport': sport,
+          'music': music,
+          'volunteering': volunteering,
+          'age': age,
+          'parental_edu': parental_edu,
+          'stw': stw,
+          'absences': absences,
+          'parents': parents,
+          'gpa': gpa,
+          }
   input_df = pd.DataFrame(data, index=[0])
   input_penguins = pd.concat([input_df, x_row], axis=0)
 
