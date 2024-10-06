@@ -6,21 +6,18 @@ import numpy as np
 st.title('Student Performance Data')
 
 with st.expander('Initial data'):
-  df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv')
+  df = pd.read_csv('student_performance.csv')
   df
 
   st.write('**X**')
-  x_row = df.drop('species', axis=1)
+  x_row = df.drop('GradeClass', axis=1)
   x_row
 
   st.write('**y**')
-  y_row = df.species
+  y_row = df.GradeClass
   y_row
 
-with st.expander('Data visualization'):
-  st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
-  st.scatter_chart(data=df, x='bill_depth_mm', y='sex', color='species')
-  
+
 with st.sidebar:
   st.header('Input Features')
   island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgerson'))
