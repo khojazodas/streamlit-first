@@ -48,19 +48,21 @@ with st.sidebar:
           'gpa': gpa,
           }
   input_df = pd.DataFrame(data, index=[0])
-  input_penguins = pd.concat([input_df, x_row], axis=0)
+  input_f = pd.concat([input_df, x_row], axis=0)
 
 
 encode = ['island', 'sex']
-df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+df_f = pd.get_dummies(input_penguins, prefix=encode)
 
-x = df_penguins[1:]
-input_row = df_penguins[:1]
+x = df_f[1:]
+input_row = df_f[:1]
 
 
-target_napper = {'Adelie': 0,
-                 'Chinstrap': 1,
-                 'Gentoo': 2}
+target_napper = {'A': 0,
+                 'B': 1,
+                 'C': 2,
+                 'D': 3,
+                 'F': 4}
 def target_encode(val):
   return target_napper[val]
 
@@ -82,7 +84,7 @@ prediction = clf.predict(input_row)
 prediction_proba = clf.predict_proba(input_row)
 
 df_prediction_proba = pd.DataFrame(prediction_proba)
-df_prediction_proba.columns = ['Adelie', 'Chinstrap', 'Gentoo']
+df_prediction_proba.columns = [0, 1, 3, 4, 5]
 df_prediction_proba.rename(columns={0: 'Adelie',
                                  1: 'Chinstrap',
                                  2: 'Gentoo'})
